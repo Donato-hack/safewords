@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#fbfaf7"/>
+  <path d="M42 95 C260 78 440 110 650 92 S1080 105 1550 88" fill="none" stroke="#222" stroke-width="3" opacity=".8"/>
+  <text x="80" y="70" font-family="Comic Sans MS, cursive" font-size="36" font-weight="700" fill="#1e293b">SafeWords - wireframes iniciales</text>
+  <text x="82" y="125" font-family="Arial, sans-serif" font-size="21" fill="#475569">Boceto de baja fidelidad para validar la estructura antes del diseño visual.</text>
+
+  <!-- Frame 1 -->
+  <g transform="rotate(-1 285 510)">
+    <rect x="70" y="180" width="430" height="670" rx="18" fill="#fff" stroke="#202124" stroke-width="4"/>
+    <text x="105" y="225" font-family="Comic Sans MS, cursive" font-size="24" font-weight="700" fill="#202124">1. Inicio / comunidad</text>
+    <rect x="100" y="250" width="370" height="54" rx="9" fill="none" stroke="#555" stroke-width="3"/>
+    <text x="120" y="285" font-family="Arial" font-size="18" fill="#555">SafeWords</text>
+    <text x="335" y="285" font-family="Arial" font-size="16" fill="#555">Inicio  Foro  Entrar</text>
+    <rect x="100" y="332" width="370" height="100" rx="12" fill="#f3f3f0" stroke="#555" stroke-width="3"/>
+    <text x="125" y="370" font-family="Arial" font-size="20" font-weight="700">Un espacio para hablar</text>
+    <text x="125" y="400" font-family="Arial" font-size="16" fill="#555">Lee, comparte y encuentra apoyo.</text>
+    <rect x="100" y="458" width="370" height="52" rx="8" fill="none" stroke="#555" stroke-width="3"/>
+    <text x="122" y="491" font-family="Arial" font-size="17" fill="#555">Buscar publicaciones...</text>
+    <rect x="100" y="535" width="370" height="105" rx="10" fill="none" stroke="#777" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="122" y="570" font-family="Arial" font-size="17" font-weight="700">Publicacion destacada</text>
+    <line x1="122" y1="588" x2="440" y2="588" stroke="#777" stroke-width="2"/>
+    <line x1="122" y1="610" x2="400" y2="610" stroke="#aaa" stroke-width="2"/>
+    <text x="122" y="626" font-family="Arial" font-size="14" fill="#666">Ver comentarios  Reportar</text>
+    <rect x="100" y="665" width="170" height="45" rx="8" fill="#e8e8e3" stroke="#555" stroke-width="3"/>
+    <text x="122" y="694" font-family="Arial" font-size="15">Filtrar por tema</text>
+    <path d="M150 895 C180 870 215 870 245 892" fill="none" stroke="#444" stroke-width="3"/>
+    <text x="115" y="925" font-family="Comic Sans MS, cursive" font-size="17" fill="#444">La persona ve sin iniciar sesion.</text>
+  </g>
+
+  <!-- Frame 2 -->
+  <g transform="rotate(1 800 510)">
+    <rect x="585" y="180" width="430" height="670" rx="18" fill="#fff" stroke="#202124" stroke-width="4"/>
+    <text x="620" y="225" font-family="Comic Sans MS, cursive" font-size="24" font-weight="700" fill="#202124">2. Crear publicacion</text>
+    <rect x="615" y="250" width="370" height="54" rx="9" fill="none" stroke="#555" stroke-width="3"/>
+    <text x="635" y="285" font-family="Arial" font-size="18" fill="#555">SafeWords</text>
+    <text x="820" y="285" font-family="Arial" font-size="16" fill="#555">Mi perfil  Salir</text>
+    <text x="615" y="354" font-family="Arial" font-size="18" font-weight="700">Titulo</text>
+    <rect x="615" y="367" width="370" height="48" rx="7" fill="none" stroke="#555" stroke-width="3"/>
+    <text x="635" y="398" font-family="Arial" font-size="16" fill="#999">Escribe un titulo...</text>
+    <text x="615" y="457" font-family="Arial" font-size="18" font-weight="700">Tu experiencia</text>
+    <rect x="615" y="470" width="370" height="128" rx="7" fill="none" stroke="#555" stroke-width="3"/>
+    <text x="635" y="505" font-family="Arial" font-size="16" fill="#999">Comparte lo que quieras contar.</text>
+    <line x1="635" y1="535" x2="950" y2="535" stroke="#aaa" stroke-width="2"/>
+    <line x1="635" y1="562" x2="920" y2="562" stroke="#aaa" stroke-width="2"/>
+    <text x="615" y="640" font-family="Arial" font-size="18" font-weight="700">Como quieres aparecer?</text>
+    <circle cx="638" cy="680" r="11" fill="none" stroke="#555" stroke-width="3"/><text x="663" y="686" font-family="Arial" font-size="16">Anonimo</text>
+    <circle cx="638" cy="720" r="11" fill="none" stroke="#555" stroke-width="3"/><text x="663" y="726" font-family="Arial" font-size="16">Con mi nombre</text>
+    <rect x="615" y="762" width="180" height="48" rx="8" fill="#e8e8e3" stroke="#555" stroke-width="3"/>
+    <text x="666" y="793" font-family="Arial" font-size="16">Publicar</text>
+    <text x="628" y="925" font-family="Comic Sans MS, cursive" font-size="17" fill="#444">La publicacion requiere iniciar sesion.</text>
+  </g>
+
+  <!-- Frame 3 -->
+  <g transform="rotate(-1 1310 510)">
+    <rect x="1100" y="180" width="430" height="670" rx="18" fill="#fff" stroke="#202124" stroke-width="4"/>
+    <text x="1135" y="225" font-family="Comic Sans MS, cursive" font-size="24" font-weight="700" fill="#202124">3. Moderacion</text>
+    <rect x="1130" y="250" width="370" height="54" rx="9" fill="none" stroke="#555" stroke-width="3"/>
+    <text x="1150" y="285" font-family="Arial" font-size="18" fill="#555">Panel de administrador</text>
+    <text x="1130" y="354" font-family="Arial" font-size="18" font-weight="700">Reportes pendientes</text>
+    <rect x="1130" y="378" width="370" height="110" rx="10" fill="none" stroke="#777" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="1150" y="415" font-family="Arial" font-size="17" font-weight="700">Comentario reportado</text>
+    <text x="1150" y="444" font-family="Arial" font-size="15" fill="#555">Motivo: lenguaje ofensivo</text>
+    <rect x="1150" y="457" width="105" height="30" rx="6" fill="#e8e8e3" stroke="#555" stroke-width="2"/>
+    <text x="1173" y="478" font-family="Arial" font-size="13">Revisar</text>
+    <rect x="1130" y="520" width="370" height="110" rx="10" fill="none" stroke="#777" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="1150" y="557" font-family="Arial" font-size="17" font-weight="700">Publicacion pendiente</text>
+    <text x="1150" y="586" font-family="Arial" font-size="15" fill="#555">Autor visible solo para moderacion</text>
+    <rect x="1150" y="599" width="105" height="30" rx="6" fill="#e8e8e3" stroke="#555" stroke-width="2"/>
+    <text x="1173" y="620" font-family="Arial" font-size="13">Gestionar</text>
+    <line x1="1130" y1="685" x2="1500" y2="685" stroke="#aaa" stroke-width="2"/>
+    <text x="1130" y="725" font-family="Arial" font-size="16">Acciones: aprobar, ocultar, eliminar</text>
+    <text x="1138" y="925" font-family="Comic Sans MS, cursive" font-size="17" fill="#444">El administrador conserva el orden y la seguridad.</text>
+  </g>
+
+  <text x="80" y="975" font-family="Arial" font-size="17" fill="#64748b">Nota: estos wireframes se realizan antes del color y sirven para validar la distribucion de la interfaz.</text>
+</svg>

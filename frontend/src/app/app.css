@@ -1,0 +1,253 @@
+:host {
+  display: block;
+}
+
+.page-content {
+  min-height: calc(100vh - 125px);
+  min-width: 0;
+}
+
+.site-footer {
+  border-top: 1px solid #e5eaf0;
+  background: white;
+  color: #8290a3;
+  font-size: .78rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+  gap: 1.25rem;
+}
+
+.app-shell {
+  min-height: 100vh;
+  color: #243447;
+}
+
+.brand-navbar {
+  background: linear-gradient(120deg, #173f5f, #20639b);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: #f3c969;
+  color: #173f5f;
+  font-weight: 800;
+}
+
+.small-mark {
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  font-size: .85rem;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #eaf6ff 0%, #f8fbff 58%, #fff8e8 100%);
+}
+
+.eyebrow,
+.section-label {
+  color: #20639b;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3caea3;
+  box-shadow: 0 0 0 5px rgba(60, 174, 163, .14);
+}
+
+.highlight-text {
+  color: #20639b;
+}
+
+.hero-copy {
+  max-width: 620px;
+  color: #526579;
+}
+
+.welcome-card {
+  border: 1px solid rgba(32, 99, 155, .1);
+  border-radius: 24px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, .9);
+}
+
+.welcome-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.25rem;
+  border-radius: 16px;
+  background: #e8f5f3;
+  color: #2a9d8f;
+  font-size: 1.8rem;
+}
+
+.safe-rule {
+  padding: .85rem 0;
+  border-top: 1px solid #edf1f5;
+}
+
+.rule-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #e8f5f3;
+  color: #2a9d8f;
+  font-weight: 800;
+}
+
+.content-section {
+  background: #f7f9fc;
+}
+
+.search-box {
+  max-width: 290px;
+}
+
+.post-card,
+.side-card {
+  border-radius: 18px;
+}
+
+.post-card {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(32, 63, 95, .1) !important;
+}
+
+.topic-badge,
+.filter-pill {
+  display: inline-block;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.topic-badge {
+  padding: .38rem .7rem;
+}
+
+.topic-badge.cyber {
+  background: #e7f1fb;
+  color: #20639b;
+}
+
+.topic-badge.emotional {
+  background: #f7eafa;
+  color: #8e44ad;
+}
+
+.post-link {
+  color: #20639b;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.filter-pill {
+  padding: .5rem .75rem;
+  background: #eef5fb;
+  color: #20639b;
+  text-decoration: none;
+}
+
+.filter-pill:hover {
+  background: #dcecf9;
+}
+
+.resource-card {
+  border-radius: 18px;
+  background: linear-gradient(135deg, #20639b, #173f5f);
+  color: white;
+}
+
+.resource-card .resource-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(255, 255, 255, .45);
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.resource-card p {
+  color: rgba(255, 255, 255, .8);
+}
+
+.how-section {
+  background: white;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  border-radius: 15px;
+  background: #e8f5f3;
+  color: #2a9d8f;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.footer-section {
+  background: #f7f9fc;
+  border-top: 1px solid #e8edf2;
+}
+
+@media (max-width: 575px) {
+  .welcome-card {
+    padding: 1.35rem;
+  }
+
+  .search-box {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,105 @@
+<section class="admin-page">
+  <div class="container py-4 py-lg-5">
+    <div class="admin-heading">
+      <div>
+        <span class="eyebrow">PANEL PRIVADO</span>
+        <h1>Moderación de SafeWords</h1>
+        <p>Revisa el contenido antes de que aparezca en el foro. La identidad interna solo la ve el equipo moderador.</p>
+      </div>
+      <a class="back-link" routerLink="/">← Volver al foro</a>
+    </div>
+
+    <div class="privacy-notice">
+      <span class="notice-icon">!</span>
+      <div><strong>Privacidad y moderación</strong><br><small>Si alguien publicó anónimamente, aquí puedes consultar sus datos internos únicamente para gestionar un caso. El público seguirá viendo “Usuario anónimo”.</small></div>
+    </div>
+
+    <div class="admin-tools">
+      <label class="admin-search" aria-label="Buscar contenido pendiente">
+        <span aria-hidden="true">⌕</span>
+        <input type="search" placeholder="Buscar por título, autor o correo" [value]="textoBusqueda()" (input)="textoBusqueda.set($any($event.target).value)">
+      </label>
+      <span class="admin-help">La identidad interna solo es visible para moderadores.</span>
+    </div>
+
+    <div class="tabs">
+      <button type="button" [class.active]="pestana() === 'publicaciones'" (click)="pestana.set('publicaciones')">Publicaciones pendientes <span>{{ publicaciones().length }}</span></button>
+      <button type="button" [class.active]="pestana() === 'comentarios'" (click)="pestana.set('comentarios')">Comentarios pendientes <span>{{ comentarios().length }}</span></button>
+      <button type="button" [class.active]="pestana() === 'reportes'" (click)="pestana.set('reportes')">Reportes <span>{{ reportes().length }}</span></button>
+      <button class="refresh-button" type="button" (click)="cargarBandeja()">↻ Actualizar</button>
+    </div>
+
+    @if (error()) {
+      <div class="alert alert-danger mt-3">{{ error() }}</div>
+    }
+    @if (aviso()) {
+      <div class="success-admin" role="status">✓ {{ aviso() }}</div>
+    }
+    @if (cargando()) {
+      <div class="empty-admin">Cargando contenido pendiente...</div>
+    } @else if (pestana() === 'publicaciones') {
+      @for (publicacion of publicacionesFiltradas(); track publicacion.id) {
+        <article class="moderation-card">
+          <div class="card-main">
+            <div class="card-meta"><span class="status-badge">PENDIENTE</span><span>{{ publicacion.categoria }}</span><span>{{ publicacion.fechaCreacion | date:'d MMM, y · h:mm a' }}</span></div>
+            <h2>{{ publicacion.titulo }}</h2>
+            <p>{{ publicacion.contenido }}</p>
+            <div class="author-box">
+              <div class="author-row"><span class="avatar">{{ publicacion.nombreUsuario.charAt(0).toUpperCase() }}</span><div><strong>Identidad interna del autor</strong><small>{{ publicacion.nombreCompleto }} · @{{ publicacion.nombreUsuario }}</small></div></div>
+              <div class="author-data"><span>Correo: {{ publicacion.correo }}</span><span>ID usuario: {{ publicacion.usuarioId }}</span><span>Vista pública: {{ publicacion.autorVisible }}</span></div>
+            </div>
+          </div>
+          <div class="moderation-actions">
+            <button class="approve-button" type="button" [disabled]="procesando() === publicacion.id" (click)="aprobarPublicacion(publicacion.id)">✓ Aprobar</button>
+            <button class="hide-button" type="button" [disabled]="procesando() === publicacion.id" (click)="ocultarPublicacion(publicacion.id)">Ocultar</button>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-admin"><div class="empty-icon">✓</div><h2>No hay publicaciones pendientes</h2><p>La bandeja está al día.</p></div>
+      }
+    } @else if (pestana() === 'comentarios') {
+      @for (comentario of comentariosFiltrados(); track comentario.id) {
+        <article class="moderation-card">
+          <div class="card-main">
+            <div class="card-meta"><span class="status-badge">PENDIENTE</span><span>En: {{ comentario.publicacionTitulo }}</span><span>{{ comentario.fechaCreacion | date:'d MMM, y · h:mm a' }}</span></div>
+            <p class="comment-content">“{{ comentario.contenido }}”</p>
+            <div class="author-box">
+              <div class="author-row"><span class="avatar">{{ comentario.nombreUsuario.charAt(0).toUpperCase() }}</span><div><strong>Identidad interna del autor</strong><small>{{ comentario.nombreCompleto }} · @{{ comentario.nombreUsuario }}</small></div></div>
+              <div class="author-data"><span>Correo: {{ comentario.correo }}</span><span>ID usuario: {{ comentario.usuarioId }}</span><span>Vista pública: {{ comentario.autorVisible }}</span></div>
+            </div>
+          </div>
+          <div class="moderation-actions">
+            <button class="approve-button" type="button" [disabled]="procesando() === comentario.id" (click)="aprobarComentario(comentario.id)">✓ Aprobar</button>
+            <button class="hide-button" type="button" [disabled]="procesando() === comentario.id" (click)="ocultarComentario(comentario.id)">Ocultar</button>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-admin"><div class="empty-icon">✓</div><h2>No hay comentarios pendientes</h2><p>La bandeja está al día.</p></div>
+      }
+    } @else {
+      @for (reporte of reportesFiltrados(); track reporte.id) {
+        <article class="moderation-card report-moderation-card">
+          <div class="card-main">
+            <div class="card-meta"><span class="report-badge">REPORTE</span><span>{{ reporte.tipoObjetivo === 'PUBLICACION' ? 'Publicación' : 'Comentario' }}</span><span>{{ reporte.fechaReporte | date:'d MMM, y · h:mm a' }}</span></div>
+            <h2>{{ reporte.motivo }}</h2>
+            <p class="reported-content">“{{ reporte.contenido }}”</p>
+            @if (reporte.descripcion) {
+              <p class="report-description"><strong>Descripción:</strong> {{ reporte.descripcion }}</p>
+            }
+            <div class="author-box">
+              <div class="author-row"><span class="avatar">{{ reporte.nombreUsuario.charAt(0).toUpperCase() }}</span><div><strong>Identidad interna del autor</strong><small>{{ reporte.nombreCompleto }} · @{{ reporte.nombreUsuario }}</small></div></div>
+              <div class="author-data"><span>Correo: {{ reporte.correo }}</span><span>ID usuario: {{ reporte.usuarioId }}</span><span>Vista pública: {{ reporte.autorVisible }}</span></div>
+            </div>
+          </div>
+          <div class="moderation-actions report-actions">
+            <button class="review-button" type="button" [disabled]="procesando() === reporte.id" (click)="marcarReporte(reporte.id, 'IN_REVIEW')">En revisión</button>
+            <button class="approve-button" type="button" [disabled]="procesando() === reporte.id" (click)="marcarReporte(reporte.id, 'RESOLVED')">Resolver</button>
+            <button class="hide-button" type="button" [disabled]="procesando() === reporte.id" (click)="marcarReporte(reporte.id, 'REJECTED')">Descartar</button>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty-admin"><div class="empty-icon">✓</div><h2>No hay reportes pendientes</h2><p>La bandeja está al día.</p></div>
+      }
+    }
+  </div>
+</section>

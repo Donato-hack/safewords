@@ -1,0 +1,58 @@
+<section class="auth-page">
+  <div class="auth-card auth-card-wide">
+    <div class="auth-brand"><span class="brand-symbol">S</span> SafeWords</div>
+    <span class="eyebrow">ÚNETE A LA COMUNIDAD</span>
+    <h1>Crea tu cuenta</h1>
+    <p class="auth-intro">Participa en el foro y decide en cada publicación si quieres aparecer como anónimo.</p>
+
+    @if (correcto()) {
+      <div class="alert alert-success py-2 small">
+        {{ mensaje() }} Te llevaremos al inicio de sesión.
+      </div>
+    }
+    @if (error()) {
+      <div class="alert alert-danger py-2 small">{{ error() }}</div>
+    }
+
+    <form [formGroup]="formulario" (ngSubmit)="registrarse()" novalidate>
+      <label for="nombreCompleto">Nombre completo</label>
+      <input id="nombreCompleto" type="text" formControlName="nombreCompleto" placeholder="Tu nombre completo" autocomplete="name">
+      @if (formulario.controls.nombreCompleto.touched && formulario.controls.nombreCompleto.hasError('required')) {
+        <small class="field-error">Escribe tu nombre completo.</small>
+      } @else if (formulario.controls.nombreCompleto.touched && formulario.controls.nombreCompleto.hasError('minlength')) {
+        <small class="field-error">Debe tener al menos 3 caracteres.</small>
+      }
+
+      <label for="nombreUsuario">Nombre de usuario</label>
+      <input id="nombreUsuario" type="text" formControlName="nombreUsuario" placeholder="Cómo te verán en el foro" autocomplete="username">
+      @if (formulario.controls.nombreUsuario.touched && formulario.controls.nombreUsuario.hasError('required')) {
+        <small class="field-error">Escribe un nombre de usuario.</small>
+      } @else if (formulario.controls.nombreUsuario.touched && formulario.controls.nombreUsuario.hasError('minlength')) {
+        <small class="field-error">Debe tener al menos 3 caracteres.</small>
+      }
+
+      <label for="registroCorreo">Correo electrónico</label>
+      <input id="registroCorreo" type="email" formControlName="correo" placeholder="tu-correo@ejemplo.com" autocomplete="email">
+      @if (formulario.controls.correo.touched && formulario.controls.correo.hasError('required')) {
+        <small class="field-error">Escribe tu correo electrónico.</small>
+      } @else if (formulario.controls.correo.touched && formulario.controls.correo.hasError('email')) {
+        <small class="field-error">Escribe un correo válido.</small>
+      }
+
+      <label for="registroPassword">Contraseña</label>
+      <input id="registroPassword" type="password" formControlName="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+      @if (formulario.controls.password.touched && formulario.controls.password.hasError('required')) {
+        <small class="field-error">Escribe una contraseña.</small>
+      } @else if (formulario.controls.password.touched && formulario.controls.password.hasError('minlength')) {
+        <small class="field-error">La contraseña debe tener al menos 6 caracteres.</small>
+      }
+
+      <button class="auth-submit" type="submit" [disabled]="cargando() || correcto()">
+        {{ cargando() ? 'Creando cuenta...' : 'Crear mi cuenta' }}
+      </button>
+    </form>
+
+    <p class="auth-footer">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+    <a class="back-link" routerLink="/">← Volver al foro</a>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+# Dependencias y salidas generadas
+frontend/node_modules/
+frontend/dist/
+backend/target/
+.m2/
+.m2-local/
+**/.angular/
+
+# Configuración local y secretos
+**/.env
+**/.env.*
+!**/.env.example
+backend/src/main/resources/application-local.properties
+
+# Archivos de IDE y sistema
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+Thumbs.db
+Desktop.ini
+
+# Capturas y documentos de trabajo con datos locales
+fotos capturas/
+documentos/*.docx

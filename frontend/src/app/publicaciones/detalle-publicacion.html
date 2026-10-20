@@ -1,0 +1,103 @@
+<section class="detail-page">
+  <div class="container py-4 py-lg-5">
+    <a class="back-link" routerLink="/">← Volver al foro</a>
+
+    @if (publicacion(); as post) {
+      <article class="detail-card">
+        <div class="detail-author"><span class="avatar">{{ (post.autor ?? 'U').charAt(0).toUpperCase() }}</span><span>{{ post.autor ?? 'Usuario anónimo' }}</span></div>
+        <h1>{{ post.titulo }}</h1>
+        <p class="post-content">{{ post.contenido }}</p>
+        <div class="detail-meta">
+          <small class="text-secondary">{{ post.fechaCreacion | date:'d MMM, y · h:mm a' }}</small>
+          @if (auth.estaAutenticado()) {
+            <button class="report-button" type="button" (click)="abrirReporte('publicacion', post.id)">⚑ Reportar publicación</button>
+          } @else {
+            <a class="report-link" routerLink="/login">Inicia sesión para reportar</a>
+          }
+        </div>
+      </article>
+
+      <section class="comments-section">
+        <div class="comments-heading">
+          <div>
+            <span class="section-label">CONVERSACIÓN RESPETUOSA</span>
+            <h2>Comentarios de la comunidad</h2>
+          </div>
+          <span class="comment-count">{{ comentarios().length }}</span>
+        </div>
+        <p class="comments-note">Los comentarios pasan por moderación para proteger a la comunidad.</p>
+        @if (cargando()) {
+          <p class="text-secondary">Cargando comentarios...</p>
+        } @else {
+          @for (comentario of comentarios(); track comentario.id) {
+            <article class="comment-card">
+              <div class="comment-author"><span class="avatar avatar-small">{{ (comentario.autor ?? 'U').charAt(0).toUpperCase() }}</span><strong>{{ comentario.autor ?? 'Usuario anónimo' }}</strong></div>
+              <p>{{ comentario.contenido }}</p>
+              <div class="comment-meta">
+                <small>{{ comentario.fechaCreacion | date:'d MMM, y · h:mm a' }}</small>
+                @if (auth.estaAutenticado()) {
+                  <button class="report-button" type="button" (click)="abrirReporte('comentario', comentario.id)">⚑ Reportar</button>
+                }
+              </div>
+            </article>
+          } @empty {
+            <div class="empty-comments">Todavía no hay comentarios. Sé la primera persona en participar.</div>
+          }
+        }
+
+        @if (reporteAbierto(); as objetivo) {
+          <div class="report-modal-backdrop" role="presentation" (click)="cerrarReporte()">
+            <section class="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-title" (click)="$event.stopPropagation()">
+              <form class="report-form" [formGroup]="reporteFormulario" (ngSubmit)="enviarReporte()">
+                <div class="report-form-heading">
+                  <div>
+                    <span class="section-label">REPORTE DE SEGURIDAD</span>
+                    <strong id="report-title">Reportar {{ objetivo.tipo === 'publicacion' ? 'publicación' : 'comentario' }}</strong>
+                    <p>Ayúdanos a mantener SafeWords como un espacio seguro.</p>
+                  </div>
+                  <button class="close-button" type="button" (click)="cerrarReporte()" aria-label="Cerrar reporte">×</button>
+                </div>
+                @if (errorReporte()) {
+                  <div class="report-error" role="alert">{{ errorReporte() }}</div>
+                }
+                <label for="motivoReporte">Motivo</label>
+                <select id="motivoReporte" formControlName="motivo">
+                  <option value="">Selecciona un motivo</option>
+                  @for (motivo of motivos; track motivo.valor) {
+                    <option [value]="motivo.valor">{{ motivo.nombre }}</option>
+                  }
+                </select>
+                <label for="descripcionReporte">Descripción opcional</label>
+                <textarea id="descripcionReporte" rows="3" formControlName="descripcion" placeholder="Cuéntanos brevemente qué debemos revisar..."></textarea>
+                <div class="report-form-actions">
+                  <button class="cancel-button" type="button" (click)="cerrarReporte()">Cancelar</button>
+                  <button class="report-submit" type="submit" [disabled]="enviandoReporte()">{{ enviandoReporte() ? 'Enviando...' : 'Enviar reporte' }}</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        }
+
+        @if (auth.estaAutenticado()) {
+          <form class="comment-form" [formGroup]="formulario" (ngSubmit)="comentar()">
+            <textarea rows="3" formControlName="contenido" placeholder="Escribe un comentario respetuoso..."></textarea>
+            <div class="comment-form-actions">
+              <label><input type="checkbox" formControlName="esAnonimo"> Comentar anónimamente</label>
+              <button class="primary-button" type="submit" [disabled]="enviando()">{{ enviando() ? 'Enviando...' : 'Comentar' }}</button>
+            </div>
+            <small class="form-note">No compartas nombres, teléfonos, direcciones ni datos privados.</small>
+          </form>
+        } @else {
+          <div class="login-prompt">Para comentar debes <a routerLink="/login">iniciar sesión</a>.</div>
+        }
+        @if (aviso()) {
+          <div class="success-message" role="status">✓ {{ aviso() }}</div>
+        }
+      </section>
+    } @else if (error()) {
+      <div class="empty-comments">{{ error() }}</div>
+    } @else {
+      <div class="empty-comments">Cargando publicación...</div>
+    }
+  </div>
+</section>

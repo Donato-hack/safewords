@@ -1,0 +1,274 @@
+.informacion-page {
+  min-height: calc(100vh - 125px);
+  background: #f6f8fb;
+  color: #172b4d;
+}
+
+.informacion-container {
+  padding: 2rem 1rem 3rem;
+}
+
+.back-link {
+  color: #20639b;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.informacion-header {
+  max-width: 800px;
+  margin: 2rem auto 1.75rem;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #2a9d8f;
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.informacion-header h1 {
+  margin: .55rem 0 .75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.informacion-header p,
+.sources-section p,
+.safewords-section p {
+  margin: 0;
+  color: #718096;
+  line-height: 1.65;
+}
+
+.safe-note,
+.safewords-section,
+.sources-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto 1.5rem;
+  border: 1px solid #cfe9e4;
+  border-radius: 18px;
+  padding: 1.25rem 1.4rem;
+  background: #eefaf8;
+}
+
+.safe-note-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #2a9d8f;
+  color: white;
+  font-weight: 800;
+}
+
+.safe-note strong {
+  color: #176b63;
+}
+
+.safe-note p {
+  margin: .35rem 0 0;
+  color: #52746f;
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto 1.5rem;
+}
+
+.information-card {
+  border: 1px solid #e4ebf1;
+  border-radius: 18px;
+  padding: 1.35rem;
+  background: white;
+  box-shadow: 0 .4rem 1.2rem rgba(32, 63, 95, .04);
+}
+
+.featured-card {
+  border-color: #cfe9e4;
+  background: linear-gradient(145deg, #ffffff 0%, #f2fbfa 100%);
+}
+
+.card-label {
+  color: #2a9d8f;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.information-card h2,
+.safewords-section h2,
+.sources-section h2 {
+  margin: .5rem 0 .6rem;
+  color: #243b5a;
+  font-size: 1.08rem;
+}
+
+.information-card p,
+.information-card li {
+  color: #66778b;
+  font-size: .84rem;
+  line-height: 1.62;
+}
+
+.information-card p {
+  margin: 0 0 .7rem;
+}
+
+.information-card p:last-child {
+  margin-bottom: 0;
+}
+
+.card-tip {
+  color: #52746f !important;
+  font-weight: 600;
+}
+
+.action-box {
+  margin-top: 1rem;
+  border-radius: 12px;
+  padding: .9rem 1rem;
+  background: #f7fafc;
+}
+
+.action-box strong {
+  color: #243b5a;
+  font-size: .8rem;
+}
+
+.action-box ul,
+.response-card ul {
+  margin: .4rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.action-box li,
+.response-card li {
+  margin: .25rem 0;
+}
+
+.safewords-section {
+  align-items: center;
+  justify-content: space-between;
+  border-color: #d9e5f0;
+  background: #f1f6fb;
+}
+
+.safewords-section h2,
+.sources-section h2 {
+  margin-top: .45rem;
+}
+
+.safewords-section p {
+  max-width: 700px;
+  font-size: .84rem;
+}
+
+.primary-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: .72rem 1.1rem;
+  background: #20639b;
+  color: white;
+  font-size: .86rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background: #173f5f;
+  color: white;
+}
+
+.sources-section {
+  align-items: stretch;
+  border-color: #e4ebf1;
+  background: white;
+}
+
+.sources-section > div:first-child {
+  flex: 1;
+}
+
+.sources-section p {
+  font-size: .84rem;
+}
+
+.sources-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.sources-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  border-radius: 10px;
+  padding: .65rem .75rem;
+  background: #f7fafc;
+  color: #20639b;
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.sources-list a:hover {
+  background: #edf5fb;
+}
+
+.sources-list span {
+  flex: 0 0 auto;
+}
+
+.last-note {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #8190a3;
+  font-size: .76rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .informacion-container {
+    padding-right: .75rem;
+    padding-left: .75rem;
+  }
+
+  .information-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safewords-section,
+  .sources-section {
+    flex-direction: column;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+
+  .sources-list a {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

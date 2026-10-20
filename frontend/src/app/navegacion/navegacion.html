@@ -1,0 +1,31 @@
+<header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" routerLink="/" aria-label="Ir al inicio de SafeWords">
+        <span class="brand-symbol">S</span>
+        <span>SafeWords</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a routerLink="/" fragment="comunidad">Comunidad</a>
+        <a href="/informacion">Información</a>
+        <a href="/normas">Normas</a>
+      </nav>
+
+      <div class="account-area">
+        @if (auth.estaAutenticado()) {
+          @if (auth.esModerador()) {
+            <a class="admin-link" routerLink="/admin">Moderación</a>
+          }
+          <a class="write-button" routerLink="/publicar">+ Publicar</a>
+          <button class="user-menu" type="button" (click)="auth.logout()" title="Cerrar sesión">
+            <span class="avatar avatar-small">{{ auth.usuarioActual().charAt(0).toUpperCase() }}</span>
+            <span class="user-name">{{ auth.usuarioActual() }}</span>
+          </button>
+        } @else {
+          <a class="login-link" routerLink="/login">Iniciar sesión</a>
+          <a class="register-button" routerLink="/registro">Registrarme</a>
+        }
+      </div>
+    </div>
+</header>

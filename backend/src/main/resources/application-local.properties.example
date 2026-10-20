@@ -1,0 +1,11 @@
+# Copia este archivo como application-local.properties para trabajar en local.
+# No subas application-local.properties al repositorio.
+DB_URL=jdbc:mysql://localhost:3306/safe_words?useSSL=false&serverTimezone=America/Bogota&allowPublicKeyRetrieval=true
+DB_USERNAME=root
+DB_PASSWORD=TU_CLAVE_LOCAL_DE_MYSQL
+JWT_SECRET=TU_SECRETO_JWT_LOCAL
+
+# Correo opcional de bienvenida
+APP_MAIL_ENABLED=false
+MAIL_USERNAME=
+MAIL_PASSWORD=

@@ -1,0 +1,189 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #e5eaf0;
+  background: rgba(255, 255, 255, .95);
+  backdrop-filter: blur(10px);
+}
+
+.topbar-inner,
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+  gap: 1.25rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: #173f5f;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: #20639b;
+  color: white;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.main-nav a,
+.login-link {
+  color: #63748a;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a.active,
+.login-link:hover {
+  color: #20639b;
+}
+
+.account-area {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.write-button,
+.register-button,
+.admin-link {
+  border-radius: 999px;
+  padding: .55rem 1rem;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.write-button {
+  background: #e8f5f3;
+  color: #238277;
+}
+
+.admin-link {
+  color: #8e44ad;
+}
+
+.register-button {
+  background: #20639b;
+  color: white;
+}
+
+.user-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 0;
+  background: transparent;
+  color: #172b4d;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dcecf9;
+  color: #20639b;
+  font-weight: 800;
+}
+
+.avatar-small {
+  width: 31px;
+  height: 31px;
+}
+
+.page-content {
+  min-height: calc(100vh - 125px);
+}
+
+.site-footer {
+  border-top: 1px solid #e5eaf0;
+  background: white;
+  color: #8290a3;
+  font-size: .78rem;
+}
+
+@media (max-width: 760px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .user-name,
+  .login-link {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .65rem;
+    min-height: auto;
+    padding: .65rem .75rem .75rem;
+  }
+
+  .brand {
+    min-width: 0;
+    font-size: 1.05rem;
+  }
+
+  .account-area {
+    min-width: 0;
+    gap: .35rem;
+  }
+
+  .account-area .write-button,
+  .account-area .register-button,
+  .account-area .admin-link {
+    padding: .45rem .6rem;
+    font-size: .72rem;
+  }
+
+  .main-nav {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: .25rem;
+    padding-top: .15rem;
+  }
+
+  .main-nav a {
+    flex: 1 1 auto;
+    padding: .25rem .1rem;
+    font-size: .76rem;
+    text-align: center;
+  }
+
+  .user-menu {
+    padding: 0;
+  }
+}

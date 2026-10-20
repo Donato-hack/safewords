@@ -1,0 +1,393 @@
+.detail-page {
+  min-height: calc(100vh - 125px);
+  background: #f6f8fb;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #20639b;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.detail-card,
+.comments-section,
+.comment-card,
+.empty-comments {
+  border: 1px solid #e5eaf0;
+  border-radius: 16px;
+  background: white;
+}
+
+.detail-card {
+  padding: 1.5rem;
+}
+
+.detail-author,
+.comment-author,
+.comment-form-actions {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e1f0f5;
+  color: #20639b;
+  font-weight: 800;
+}
+
+.avatar-small {
+  width: 30px;
+  height: 30px;
+  font-size: .75rem;
+}
+
+.detail-card h1 {
+  margin: 1.25rem 0 .7rem;
+  color: #172b4d;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.detail-meta,
+.comment-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+}
+
+.post-content {
+  color: #526579;
+  line-height: 1.7;
+}
+
+.comments-section {
+  max-width: 800px;
+  margin-top: 1.2rem;
+  padding: 1.5rem;
+}
+
+.comments-section h2 {
+  margin: .35rem 0 0;
+  color: #172b4d;
+  font-size: 1.1rem;
+}
+
+.comments-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-label {
+  color: #2a9d8f;
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.comment-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #eef6fb;
+  color: #20639b;
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.comments-note {
+  margin: .55rem 0 1rem;
+  color: #8190a3;
+  font-size: .76rem;
+}
+
+.comment-card {
+  margin-bottom: .75rem;
+  padding: 1rem;
+  background: #fbfcfd;
+}
+
+.comment-card p {
+  margin: .75rem 0 .4rem 2.4rem;
+  color: #526579;
+  font-size: .87rem;
+}
+
+.comment-card small {
+  color: #99a6b5;
+  font-size: .7rem;
+}
+
+.comment-meta {
+  margin-left: 2.4rem;
+  justify-content: flex-start;
+}
+
+.report-button,
+.report-link {
+  border: 0;
+  background: transparent;
+  color: #a87575;
+  font-size: .7rem;
+  text-decoration: none;
+}
+
+.report-button:hover,
+.report-link:hover {
+  color: #8e4e4e;
+  text-decoration: underline;
+}
+
+.comment-form {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #edf1f5;
+}
+
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid #d9e3ec;
+  border-radius: 10px;
+  padding: .75rem;
+  outline: none;
+  resize: vertical;
+}
+
+.comment-form-actions {
+  justify-content: space-between;
+  margin-top: .7rem;
+  color: #718096;
+  font-size: .78rem;
+}
+
+.comment-form-actions input {
+  accent-color: #20639b;
+}
+
+.form-note {
+  display: block;
+  margin-top: .65rem;
+  color: #99a6b5;
+  font-size: .7rem;
+}
+
+.report-form {
+  width: min(100%, 460px);
+  border: 1px solid #f0d5d5;
+  border-radius: 14px;
+  padding: 1rem;
+  background: #fffafa;
+  box-shadow: 0 1.2rem 3rem rgba(45, 38, 52, .2);
+}
+
+.report-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(23, 43, 77, .46);
+  backdrop-filter: blur(3px);
+}
+
+.report-modal {
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+.report-form-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .85rem;
+}
+
+.report-form-heading strong {
+  display: block;
+  margin-top: .35rem;
+  color: #8e4e4e;
+  font-size: .86rem;
+}
+
+.report-form-heading p {
+  margin: .25rem 0 0;
+  color: #9b7474;
+  font-size: .74rem;
+}
+
+.close-button {
+  border: 0;
+  background: transparent;
+  color: #a87575;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.report-form label {
+  display: block;
+  margin-top: .7rem;
+  margin-bottom: .3rem;
+  color: #704d4d;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.report-form select,
+.report-form textarea {
+  width: 100%;
+  border: 1px solid #ead1d1;
+  border-radius: 9px;
+  padding: .65rem;
+  background: white;
+  color: #526579;
+  font-size: .78rem;
+  outline: 0;
+}
+
+.report-error {
+  margin: .8rem 0;
+  border: 1px solid #efcaca;
+  border-radius: 9px;
+  padding: .7rem .8rem;
+  background: #fff0f0;
+  color: #9b4d4d;
+  font-size: .75rem;
+  line-height: 1.45;
+}
+
+.report-form textarea {
+  resize: vertical;
+}
+
+.report-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: .55rem;
+  margin-top: .85rem;
+}
+
+.cancel-button,
+.report-submit {
+  border: 0;
+  border-radius: 999px;
+  padding: .6rem .85rem;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.cancel-button {
+  background: #f7eeee;
+  color: #8e4e4e;
+}
+
+.report-submit {
+  background: #a85c5c;
+  color: white;
+}
+
+.report-submit:disabled {
+  opacity: .55;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+  padding: .65rem 1rem;
+  background: #20639b;
+  color: white;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.login-prompt {
+  margin-top: 1.25rem;
+  padding: .9rem;
+  border-radius: 10px;
+  background: #eef6fb;
+  color: #63748a;
+  font-size: .82rem;
+}
+
+.login-prompt a {
+  color: #20639b;
+  font-weight: 700;
+}
+
+.success-message {
+  margin-top: .85rem;
+  border: 1px solid #bfe2dc;
+  border-radius: 10px;
+  padding: .75rem .9rem;
+  background: #effaf8;
+  color: #176b63;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.empty-comments {
+  padding: 1.2rem;
+  color: #718096;
+}
+
+@media (max-width: 600px) {
+  .detail-card,
+  .comments-section {
+    padding: 1rem;
+  }
+
+  .detail-meta,
+  .comments-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .comment-card p,
+  .comment-meta {
+    margin-left: 0;
+  }
+
+  .comment-form-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .comment-form-actions .primary-button {
+    width: 100%;
+  }
+
+  .report-modal-backdrop {
+    align-items: flex-start;
+    padding: .65rem;
+  }
+
+  .report-form {
+    padding: .85rem;
+  }
+
+  .report-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-button,
+  .report-submit {
+    width: 100%;
+  }
+}

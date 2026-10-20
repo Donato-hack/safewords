@@ -1,0 +1,388 @@
+.admin-page {
+  min-height: calc(100vh - 125px);
+  background: #f6f8fb;
+}
+
+.admin-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  color: #8e44ad;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.admin-heading h1 {
+  margin: .45rem 0 .4rem;
+  color: #172b4d;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 800;
+}
+
+.admin-heading p {
+  margin: 0;
+  color: #718096;
+  font-size: .87rem;
+}
+
+.back-link {
+  color: #20639b;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.privacy-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: 1rem;
+  border: 1px solid #eadcf0;
+  border-radius: 13px;
+  background: #fbf6fd;
+  color: #704980;
+  font-size: .82rem;
+}
+
+.privacy-notice small {
+  color: #846d8c;
+  line-height: 1.5;
+}
+
+.admin-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.admin-search {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  width: min(430px, 100%);
+  border: 1px solid #e1d7e6;
+  border-radius: 999px;
+  padding: .55rem .8rem;
+  background: white;
+  color: #9a8aa0;
+}
+
+.admin-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #526579;
+  font-size: .78rem;
+}
+
+.admin-help {
+  color: #918199;
+  font-size: .72rem;
+}
+
+.notice-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #ead9f0;
+  font-weight: 800;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  margin: 1.25rem 0 .8rem;
+  overflow-x: auto;
+}
+
+.tabs button {
+  border: 0;
+  border-radius: 999px;
+  padding: .65rem .9rem;
+  background: white;
+  color: #718096;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tabs button.active {
+  background: #20639b;
+  color: white;
+}
+
+.tabs button span {
+  margin-left: .25rem;
+  opacity: .8;
+}
+
+.tabs .refresh-button {
+  margin-left: auto;
+  color: #20639b;
+}
+
+.success-admin {
+  margin-top: .8rem;
+  border: 1px solid #cfe9e4;
+  border-radius: 10px;
+  padding: .7rem .9rem;
+  background: #eefaf8;
+  color: #176b63;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.moderation-card,
+.empty-admin {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.4rem;
+  margin-bottom: .8rem;
+  padding: 1.2rem;
+  border: 1px solid #e5eaf0;
+  border-radius: 16px;
+  background: white;
+}
+
+.card-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  align-items: center;
+  color: #94a0af;
+  font-size: .7rem;
+}
+
+.status-badge {
+  border-radius: 999px;
+  padding: .3rem .55rem;
+  background: #fff1ce;
+  color: #a36c0a;
+  font-size: .64rem;
+  font-weight: 800;
+}
+
+.report-badge {
+  border-radius: 999px;
+  padding: .3rem .55rem;
+  background: #fff0f0;
+  color: #a85c5c;
+  font-size: .64rem;
+  font-weight: 800;
+}
+
+.moderation-card h2 {
+  margin: .8rem 0 .4rem;
+  color: #172b4d;
+  font-size: 1rem;
+}
+
+.moderation-card p {
+  margin: 0 0 .9rem;
+  color: #526579;
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+.comment-content {
+  margin-top: .9rem !important;
+  font-size: .95rem !important;
+}
+
+.reported-content {
+  padding: .75rem .9rem;
+  border-left: 3px solid #e5b6b6;
+  background: #fffafa;
+}
+
+.report-description {
+  font-size: .78rem !important;
+}
+
+.report-actions {
+  min-width: 112px;
+}
+
+.review-button {
+  background: #f2edfb;
+  color: #704980;
+}
+
+.author-box {
+  padding: .75rem;
+  border-radius: 11px;
+  background: #f7f4f9;
+}
+
+.author-row {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ead9f0;
+  color: #8e44ad;
+  font-weight: 800;
+}
+
+.author-row strong,
+.author-row small {
+  display: block;
+}
+
+.author-row strong {
+  color: #704980;
+  font-size: .75rem;
+}
+
+.author-row small {
+  margin-top: .15rem;
+  color: #8a7a91;
+  font-size: .7rem;
+}
+
+.author-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .9rem;
+  margin-top: .55rem;
+  padding-top: .55rem;
+  border-top: 1px solid #e9e0ed;
+  color: #8a7a91;
+  font-size: .68rem;
+}
+
+.moderation-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  min-width: 100px;
+}
+
+.moderation-actions button {
+  border: 0;
+  border-radius: 999px;
+  padding: .6rem .8rem;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.approve-button {
+  background: #e8f5f3;
+  color: #238277;
+}
+
+.hide-button {
+  background: #fff0f0;
+  color: #ae5555;
+}
+
+.moderation-actions button:disabled {
+  cursor: wait;
+  opacity: .5;
+}
+
+.empty-admin {
+  display: block;
+  padding: 3rem 1rem;
+  color: #718096;
+  text-align: center;
+}
+
+.empty-admin h2 {
+  margin: 1rem 0 .3rem;
+  color: #243b5a;
+  font-size: 1.1rem;
+}
+
+.empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e8f5f3;
+  color: #2a9d8f;
+  font-weight: 800;
+}
+
+@media (max-width: 650px) {
+  .admin-heading {
+    display: block;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: .8rem;
+  }
+
+  .admin-tools {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-search {
+    width: auto;
+  }
+
+  .moderation-card {
+    display: block;
+  }
+
+  .moderation-actions {
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .admin-page .container {
+    padding-right: .75rem;
+    padding-left: .75rem;
+  }
+
+  .privacy-notice,
+  .moderation-card {
+    padding: .9rem;
+  }
+
+  .moderation-actions {
+    flex-wrap: wrap;
+  }
+
+  .moderation-actions button {
+    flex: 1 1 100%;
+  }
+
+  .author-data {
+    flex-direction: column;
+    gap: .3rem;
+  }
+}

@@ -1,0 +1,173 @@
+<section class="forum-page">
+  <div class="container py-4 py-lg-5">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="status-dot"></span> COMUNIDAD SAFWORDS</span>
+        <h1>Un espacio seguro para hablar, escuchar y acompañar.</h1>
+        <p>Comparte experiencias sobre bullying y violencia sin sentirte solo. Lee, aprende y participa con respeto.</p>
+        <div class="hero-actions">
+          @if (auth.estaAutenticado()) {
+            <a class="primary-button" routerLink="/publicar">+ Crear publicación</a>
+          } @else {
+            <a class="primary-button" routerLink="/registro">Únete a la comunidad</a>
+          }
+          <a class="secondary-button" href="/informacion">Conocer los temas →</a>
+        </div>
+        <div class="trust-points">
+          <span>✓ Lectura pública</span>
+          <span>✓ Comentarios moderados</span>
+          <span>✓ Opción anónima</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-glow"></div>
+        <div class="hero-message message-one">Te escuchamos</div>
+        <div class="hero-message message-two">Tu historia importa</div>
+        <div class="hero-center">S</div>
+        <div class="hero-ring ring-one"></div>
+        <div class="hero-ring ring-two"></div>
+      </div>
+    </section>
+
+    <div class="community-stats" aria-label="Resumen de la comunidad">
+      <div><strong>{{ publicaciones().length }}</strong><span>historias compartidas</span></div>
+      <div><strong>{{ categorias.length - 1 }}</strong><span>temas disponibles</span></div>
+      <div><strong>100%</strong><span>espacio de respeto</span></div>
+    </div>
+
+    <section class="topics-section" aria-labelledby="topics-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">EXPLORA LA COMUNIDAD</span>
+          <h2 id="topics-title">Encuentra un tema para empezar</h2>
+        </div>
+        <a href="/informacion">Leer información educativa →</a>
+      </div>
+      <div class="topic-grid">
+        @for (tema of temas; track tema.categoria) {
+          <button type="button" class="topic-preview" [class.active-topic]="categoriaSeleccionada() === tema.categoria" (click)="seleccionarCategoria(tema.categoria)">
+            <span class="topic-preview-icon">{{ tema.icono }}</span>
+            <span><strong>{{ tema.nombre }}</strong><small>{{ tema.descripcion }}</small></span>
+          </button>
+        }
+      </div>
+    </section>
+
+    <div class="forum-layout">
+      <aside class="left-column">
+        <div class="profile-card">
+          <div class="profile-banner"></div>
+          <div class="profile-body">
+            <div class="avatar avatar-large">{{ auth.usuarioActual().charAt(0).toUpperCase() }}</div>
+            <h2>{{ auth.estaAutenticado() ? auth.usuarioActual() : 'Visitante' }}</h2>
+            <p>{{ auth.estaAutenticado() ? 'Gracias por participar en SafeWords.' : 'Lee las publicaciones sin registrarte.' }}</p>
+            @if (!auth.estaAutenticado()) {
+              <a class="outline-button w-100" routerLink="/login">Iniciar sesión</a>
+            }
+          </div>
+        </div>
+
+        <div class="topic-card" id="comunidad">
+          <h3>Temas</h3>
+          @for (categoria of categorias; track categoria) {
+            <button type="button" class="topic-button" [class.selected]="categoriaSeleccionada() === categoria" (click)="seleccionarCategoria(categoria)">
+              <span class="topic-dot"></span>{{ categoria }}
+            </button>
+          }
+        </div>
+      </aside>
+
+      <section class="feed-column" aria-label="Publicaciones de la comunidad">
+        <div class="feed-toolbar">
+          <div>
+            <strong>{{ publicacionesFiltradas().length }} historias</strong>
+            <span> · {{ orden() === 'recientes' ? 'Más recientes' : 'Más antiguas' }}</span>
+          </div>
+          <div class="feed-controls">
+            <label class="sort-field">Ordenar
+              <select [value]="orden()" (change)="orden.set($any($event.target).value)">
+                <option value="recientes">Recientes</option>
+                <option value="antiguas">Antiguas</option>
+              </select>
+            </label>
+            <label class="search-field" aria-label="Buscar publicaciones">
+              <span aria-hidden="true">⌕</span>
+              <input type="search" placeholder="Buscar" [value]="textoBusqueda()" (input)="textoBusqueda.set($any($event.target).value)">
+            </label>
+          </div>
+        </div>
+
+        @if (cargando()) {
+          <div class="empty-card text-center">Cargando experiencias de la comunidad...</div>
+        } @else if (error()) {
+          <div class="empty-card error-card">
+            <p>{{ error() }}</p>
+            <button class="outline-button" type="button" (click)="cargarPublicaciones()">Reintentar</button>
+          </div>
+        } @else if (publicacionesFiltradas().length === 0) {
+          <div class="empty-card text-center">
+            <div class="empty-icon">♡</div>
+            <h2>No encontramos historias</h2>
+            <p>Prueba con otro tema o cambia las palabras de búsqueda.</p>
+            <button class="outline-button" type="button" (click)="limpiarFiltros()">Limpiar filtros</button>
+            @if (auth.estaAutenticado()) {
+              <a class="primary-button" routerLink="/publicar">Crear publicación</a>
+            }
+          </div>
+        } @else {
+          @for (publicacion of publicacionesFiltradas(); track publicacion.id) {
+            <article class="post-card">
+              <div class="post-head">
+                <div class="post-author">
+                  <span class="avatar">{{ autorDe(publicacion).charAt(0).toUpperCase() }}</span>
+                  <div>
+                    <strong>{{ autorDe(publicacion) }}</strong>
+                    <small>{{ publicacion.fechaCreacion | date:'d MMM, y · h:mm a' }}</small>
+                  </div>
+                </div>
+                <span class="category-tag">{{ categoriaDe(publicacion) }}</span>
+              </div>
+              <span class="post-kicker">Historia de la comunidad</span>
+              <h2>{{ publicacion.titulo }}</h2>
+              <p>{{ publicacion.contenido }}</p>
+              <div class="post-actions">
+                <a [routerLink]="['/publicacion', publicacion.id]">♡ Comentar</a>
+                <button type="button" (click)="copiarEnlace(publicacion)">↗ Compartir</button>
+                <a class="report-link" [routerLink]="['/publicacion', publicacion.id]" [queryParams]="{ report: 'publicacion' }">⚑ Reportar</a>
+                <button type="button">⋯</button>
+              </div>
+            </article>
+          }
+        }
+      </section>
+
+      <aside class="right-column" id="normas">
+        <div class="rules-card">
+          <div class="rules-icon">✓</div>
+          <h2>Construyamos un espacio seguro</h2>
+          <p>Antes de publicar, recuerda nuestras reglas de comunidad.</p>
+          <ul>
+            <li>Habla con respeto y empatía.</li>
+            <li>No compartas datos personales.</li>
+            <li>Reporta contenido dañino.</li>
+          </ul>
+          <a href="/normas">Leer normas completas →</a>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">i</span>
+          <strong>Conoce estos temas</strong>
+          <p>Aprende a reconocer el bullying, el cyberbullying y otras formas de violencia.</p>
+          <a href="/informacion">Ver información →</a>
+        </div>
+        <div class="anonymous-card">
+          <span class="anonymous-icon">◌</span>
+          <strong>Tu privacidad importa</strong>
+          <p>Las publicaciones pueden aparecer como “Usuario anónimo”.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+  @if (aviso()) {
+    <div class="toast-message" role="status">✓ {{ aviso() }}</div>
+  }
+</section>

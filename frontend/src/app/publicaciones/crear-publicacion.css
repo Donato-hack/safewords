@@ -1,0 +1,156 @@
+.compose-page {
+  min-height: calc(100vh - 125px);
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #edf7fc, #fffaf0);
+}
+
+.compose-card {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  padding: 2.2rem;
+  border: 1px solid #e3ebf1;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 1.4rem 3rem rgba(32, 63, 95, .1);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: #20639b;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.eyebrow {
+  display: block;
+  color: #2a9d8f;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.compose-card h1 {
+  margin: .55rem 0 .35rem;
+  color: #172b4d;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.intro,
+.moderation-note {
+  color: #718096;
+  font-size: .84rem;
+  line-height: 1.55;
+}
+
+.compose-card form {
+  display: grid;
+  gap: .55rem;
+  margin-top: 1.5rem;
+}
+
+.compose-card label:not(.privacy-option) {
+  margin-top: .5rem;
+  color: #526579;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.compose-card input:not([type="checkbox"]),
+.compose-card select,
+.compose-card textarea {
+  width: 100%;
+  border: 1px solid #d9e3ec;
+  border-radius: 10px;
+  padding: .75rem .85rem;
+  color: #172b4d;
+  outline: none;
+  font-size: .88rem;
+}
+
+.compose-card textarea {
+  resize: vertical;
+}
+
+.field-error {
+  color: #a64949;
+  font-size: .74rem;
+}
+
+.compose-card input:focus,
+.compose-card select:focus,
+.compose-card textarea:focus {
+  border-color: #5a9bc7;
+  box-shadow: 0 0 0 3px rgba(32, 99, 155, .1);
+}
+
+.privacy-option {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  margin-top: .9rem;
+  padding: .85rem;
+  border-radius: 12px;
+  background: #f5fafb;
+  color: #526579;
+  cursor: pointer;
+}
+
+.privacy-option input {
+  margin-top: .2rem;
+  accent-color: #20639b;
+}
+
+.privacy-option span,
+.privacy-option small {
+  display: block;
+}
+
+.privacy-option strong {
+  font-size: .83rem;
+}
+
+.privacy-option small {
+  margin-top: .2rem;
+  color: #8190a3;
+  font-size: .75rem;
+}
+
+.submit-button {
+  margin-top: .8rem;
+  border: 0;
+  border-radius: 999px;
+  padding: .8rem;
+  background: #20639b;
+  color: white;
+  font-weight: 700;
+}
+
+.submit-button:disabled {
+  opacity: .6;
+}
+
+.moderation-note {
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .compose-page {
+    padding: 1.25rem .7rem 2rem;
+  }
+
+  .compose-card {
+    padding: 1.35rem 1rem;
+    border-radius: 16px;
+  }
+
+  .compose-card h1 {
+    font-size: 1.55rem;
+  }
+
+  .back-link {
+    margin-bottom: 1.35rem;
+  }
+}
